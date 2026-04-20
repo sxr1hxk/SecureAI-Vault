@@ -33,9 +33,4 @@ This project is a secure password manager built using Flask and Python. It focus
 * Input validation
 * Secure storage
 
-## 📸 Screenshots
-
-<img width="1100" height="873" alt="Screenshot 2026-03-25 182124" src="https://github.com/user-attachments/assets/90833229-a452-491c-89f0-b9a51b9a9110" />
-
-
 ⭐ Star this repo if you like it!
