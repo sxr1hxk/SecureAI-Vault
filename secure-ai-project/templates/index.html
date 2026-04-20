@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Secure Cloud AI System</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: radial-gradient(circle at top, #0f2027, #203a43, #000000);
+            color: white;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 40px;
+            font-size: 34px;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            color: #aaa;
+            margin-bottom: 30px;
+        }
+
+        .container {
+            margin-top: 40px;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            display: inline-block;
+            box-shadow: 0 0 25px rgba(0, 198, 255, 0.4);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        input {
+            padding: 12px;
+            width: 300px;
+            border-radius: 10px;
+            border: none;
+            margin-bottom: 15px;
+            outline: none;
+        }
+
+        button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(90deg, #00c6ff, #0072ff);
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 10px #00c6ff;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .status {
+            margin-top: 5px;
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        /* Result Colors */
+        .safe { color: #00ff9d; }
+        .spam { color: #ffd000; }
+        .blocked { color: #ff4d4d; }
+
+        footer {
+            margin-top: 80px;
+            padding: 20px;
+            font-size: 14px;
+            color: #888;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        footer span {
+            color: #00c6ff;
+            font-weight: bold;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <h1>🔐 Secure Cloud AI System</h1>
+    <p class="subtitle">Real-time Protection Against Adversarial AI Attacks</p>
+
+    <div class="container">
+        <div class="card">
+            <form method="POST">
+                <input type="text" name="text" placeholder="Enter input..." required><br>
+                <button type="submit">Analyze</button>
+            </form>
+
+            {% if result %}
+                <div class="result 
+                    {% if 'NORMAL' in result %}safe
+                    {% elif 'SPAM' in result %}spam
+                    {% elif 'BLOCKED' in result %}blocked
+                    {% endif %}
+                ">
+                    {{ result }}
+                </div>
+            {% endif %}
+
+            <div class="status">{{ status }}</div>
+
+            {% if confidence %}
+                <div class="status">{{ confidence }}</div>
+            {% endif %}
+
+            <div class="status">🚨 Attacks Blocked: {{ attacks }}</div>
+        </div>
+    </div>
+
+    <footer>
+        <p>🚀 Project: <span>Securing Cloud AI Workloads: Protecting Generative AI Models from Adversarial Attacks</span></p>
+    </footer>
+
+</body>
+</html>
